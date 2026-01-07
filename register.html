@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registrierung</title>
+  </head>
+  <body>
+    <main>
+      <h1>Registrierung</h1>
+      <form method="post">
+        <label>
+          E-Mail
+          <input type="email" name="email" autocomplete="email" required />
+        </label>
+        <label>
+          Passwort
+          <input type="password" name="password" autocomplete="new-password" required />
+        </label>
+        <label>
+          Passwort bestätigen
+          <input
+            type="password"
+            name="password_confirm"
+            autocomplete="new-password"
+            required
+          />
+        </label>
+        <button type="submit">Registrieren</button>
+      </form>
+    </main>
+  </body>
+</html>
