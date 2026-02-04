@@ -1,3 +1,10 @@
+⚠️ Project Status: Archived
+
+This repository is no longer under active development.
+It remains public as a portfolio reference for architecture,
+service design, and DevOps-related decisions.
+
+
 # Online Reservation – Web Frontend
 
 **Work in Progress**
