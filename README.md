@@ -1,121 +1,129 @@
-⚠️ Project Status: Archived
+# Web Frontend
 
-This repository is no longer under active development.
-It remains public as a portfolio reference for architecture,
-service design, and DevOps-related decisions.
+This repository contains the **frontend** for the **Online Reservation** project.
 
-
-# Online Reservation – Web Frontend
-
-**Work in Progress**
-
-This repository contains the **web frontend** for the portfolio project **Online Reservation**.  
-It provides the user interface for interacting with the underlying services and serves as a clear separation between presentation (UI) and business logic (backend APIs).
+It currently serves as a **lightweight test interface** for validating backend API flows and will later evolve into a full-featured frontend application.
 
 ---
 
-## Quick Overview (Scanner-Friendly)
+## Purpose
 
-- Web frontend for a service-oriented reservation system  
-- Clear separation between frontend and backend  
-- Communication exclusively via defined APIs  
-- Incremental evolution of frontend technology  
-- Portfolio project with a focus on clean architecture and extensibility  
+The Web Frontend is used to:
 
----
-
-## Project Context
-
-The **Online Reservation** project is part of my developer portfolio and represents my deliberate transition from classic web application development towards:
-
-- service-oriented architecture  
-- clearly defined interfaces (APIs)  
-- decoupled components  
-- modern development and deployment practices  
-
-This repository represents the **frontend layer** and can run independently of specific backend implementations, as long as the defined API contracts are respected.
+- test and validate backend APIs (Auth Service, future API)
+- simulate basic user interactions
+- provide a simple UI for development and debugging
+- serve as a foundation for future frontend development
 
 ---
 
-## Role of the Web Frontend in the Architecture
+## Current State
 
-The web frontend is responsible for:
-
-- rendering the user interface  
-- handling user interaction (forms, validation, feedback)  
-- communicating with backend services via HTTP APIs  
-- no direct business logic or data persistence  
-
-All domain logic resides entirely within the respective backend services.
+- implemented as **static HTML, CSS, and JavaScript**
+- no framework dependency
+- communicates directly with backend services via HTTP (REST)
 
 ---
 
-## Frontend Strategy & Technology
+## Tech Stack
 
-The frontend is developed **intentionally across multiple releases**:
-
-### Release 1 – Rudimentary Frontend
-
-- Implemented using **plain HTML**  
-- Focus on:
-  - basic user flows
-  - clean API integration
-  - functional end-to-end testing of the services  
-- No complex client-side logic  
-- Goal: validate the architecture, not perfect the UI  
-
-### Later Releases – Modern Frontend
-
-- Migration to **React**  
-- Expansion towards a component-based architecture  
-- Improved user experience and maintainability  
-- Clear separation between presentation and application logic  
-
-This approach enables **incremental technical evolution** without changing the backend architecture.
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+- Nginx (for serving static files)
+- Docker
 
 ---
 
-## Communication with Services
+## Architecture (current)
 
-The frontend communicates exclusively via clearly defined endpoints, for example:
-
-- Auth Service (login, registration, user context)  
-- Reservation Service (creating, viewing, and managing reservations)
-
-The exact API specifications can be found in the respective service repositories.
-
----
-
-## Architectural Principles
-
-- **Separation of Concerns**  
-- **API-first approach**  
-- **Loose coupling**  
-- **Service replaceability**  
-- **No direct dependency on databases or internal service logic**
+- static frontend served via **Nginx**
+- communicates with backend services:
+  - Auth Service (Java / Jakarta EE)
+  - future API (TBA)
+- no build step required
 
 ---
 
-## Development Status
+## Features (current)
 
-**Status: 07 January 2026**
-
-This project is actively under development.  
-Structure, features, and technical details may change during the development process.
-
----
-
-## Purpose of This Repository
-
-- Demonstrate modern frontend integration in a microservice architecture  
-- Clear separation between UI and backend  
-- Incremental evolution of the chosen technologies  
-- Understandable and maintainable project structure  
-- Portfolio reference for service-oriented web applications  
+- simple login form
+- manual API interaction
+- basic request/response visualization
+- minimal UI for testing authentication flow
 
 ---
 
-## Note
+## Planned Evolution
 
-This repository is part of a **learning and portfolio project**.  
-The focus is on architecture, clarity, and sustainable development — not on feature completeness.
+The frontend will be extended and gradually replaced by a modern framework:
+
+### Future Frontend
+
+- migration to **Angular (TypeScript)**
+- role-based UI (business vs. customer)
+- improved UX and navigation
+- structured state management
+- integration with full backend API
+
+---
+
+## Project Structure
+
+```text
+web/
+│
+├── index.html
+├── css/
+├── js/
+├── nginx/
+│   └── default.conf
+└── Dockerfile
+```
+## Getting Started
+
+### Prerequisites
+
+- Docker
+
+---
+
+### Run locally
+
+docker build -t web-frontend .
+docker run -p 8080:80 web-frontend
+
+Then open:
+http://localhost:8080
+
+---
+
+## Configuration
+
+- API endpoints are currently configured directly in JavaScript
+- may be externalized later (e.g. environment variables or config files)
+
+---
+
+## Development Notes
+
+- intentionally kept simple for fast iteration
+- no framework overhead
+- used primarily as a development and debugging tool
+- will coexist with Angular frontend during transition phase
+
+---
+
+## Related Repositories
+
+- Overview:  
+  https://github.com/RubinaWeinzettl/online-reservation-overview
+
+- Auth Service (Java):  
+  https://github.com/RubinaWeinzettl/online-reservation-auth-java
+
+---
+
+## Status
+
+🚧 Work in progress – currently a minimal test frontend, planned to evolve into Angular-based UI
